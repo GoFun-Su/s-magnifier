@@ -1,9 +1,9 @@
 #s-magnifier
 ##使用方法
 ```bash
-###1.引用magnifier.js 
-###2.在需要放大镜的盒子加上类名scroll 
-###3.引用，配置参数
+1.引用magnifier.js 
+2.在需要放大镜的盒子加上类名scroll 
+3.引用，配置参数
 
 eg:new Magnifier({
 		fixed_one:".scroll",
