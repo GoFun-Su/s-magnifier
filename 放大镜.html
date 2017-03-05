@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Magnifier</title>
+  <style>
+  .scroll{
+    position: relative;
+    cursor:move;
+  }
+  span{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.4);
+		background-color: #ccc;
+		opacity: 0.4;
+		filter:alpha(opacity = 40);
+    z-index: 5;
+  }
+  .bigWrap{
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+
+  }
+  .bigPhoto{
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+  </style>
+</head>
+<body>
+<div class="scroll">
+
+</div>
+
+
+</body>
+<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="magnifier.js"></script>
+<script type="text/javascript">
+
+	new Magnifier({
+		fixed_one:".scroll",
+		small_img_src:"http://img.xianlaohu.com/portal/images/20170221/c5f985fd-72bb-4a2a-92c5-0f46fbd52b70.jpeg?width=350&height=350",
+		big_img_src:"http://img.xianlaohu.com/portal/images/20170221/7fc81409-032f-463e-af53-3fa4bc3f7707.jpeg?width=1050&height=1050",
+	})
+
+
+// var w=$('div').width();
+// var h=$('div').height();
+// $(".scroll").mousemove(function(event) {
+//     var x=event.pageX-$('div').offset().left-50;
+//     var y=event.pageY-$('div').offset().top-50;
+//     if(x<0){
+//       x=0;
+//     }
+//     if(y<0){
+//       y=0;
+//     }
+//     if(x>w-100){
+//         x=w-100;
+//       }
+//       if(y>h-100){
+//         y=h-100;
+//       };
+//     $('span').css({
+//       left: x,
+//       top: y
+//     });
+//     $('.niho').css({
+//       "background-position": "-"+(3*x)+"px -"+(3*y)+"px",
+//     });
+    // x/175=y/350
+    // x是大盒子的宽度减去小盒子的宽度剩余的像素代表1，然后每走一个像素实际代表走的像素为(大盒子的宽度减去小盒子的宽度/小盒子的像素*x),
+		//然后第二个大盒子是第一个大盒子的（第二个图片的宽度/第一个大盒子的宽度）倍，所以
+		//大盒子的宽度/大盒子的宽度减去小盒子的宽度*x*(第二个图片的宽度/第一个大盒子的宽度)=第二个大盒子的图片的宽度/(第二个大盒子的图片的宽度-第二个大盒子的宽度)*y,化简等于
+		// 而且第二个盒子的宽度也是有限制的，无论是图片大小未知还是其他的，都可以使用这个公式
+		// 第一个盒子的宽度/小盒子的宽度=第二张图片的宽度/第二个盒子的宽度
+		//问题的关键是图片加载是异步的，返回的获取不到值，所以是用了deferred对象，然后改变了一下整体的结构，省略了其中一步
+// });
+</script>
+</html>
